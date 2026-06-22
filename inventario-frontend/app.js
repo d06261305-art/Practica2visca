@@ -1,4 +1,4 @@
-const API_URL = "/productos";
+const API_URL = "https://practica2visca.onrender.com/productos";
 
 const form = document.getElementById("formProducto");
 const productoId = document.getElementById("productoId");
