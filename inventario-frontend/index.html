@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario NoSQL</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <p>MongoDB Atlas</p>
+        <h1>Panel de Inventario</h1>
+      </div>
+      <input type="search" id="busqueda" placeholder="Buscar articulo">
+    </header>
+
+    <section class="card">
+      <h2 id="tituloFormulario">Registrar producto</h2>
+      <form id="formProducto">
+        <input type="hidden" id="productoId">
+        <input type="text" id="nombre" placeholder="Nombre del articulo" required>
+        <input type="number" id="precio" placeholder="Precio" min="0" step="0.01" required>
+        <input type="number" id="existencia" placeholder="Cantidad" min="0" required>
+        <div class="actions">
+          <button type="submit">Guardar</button>
+          <button type="button" id="cancelar">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Existencias en base de datos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Articulo</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tabla"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
