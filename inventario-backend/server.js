@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, "../inventario-frontend")));
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -26,7 +28,7 @@ const ProductoSchema = new mongoose.Schema(
 const Producto = mongoose.model("Producto", ProductoSchema);
 
 app.get("/", (req, res) => {
-  res.json({ mensaje: "API de inventario activa" });
+  res.sendFile(path.join(__dirname, "../inventario-frontend/index.html"));
 });
 
 app.get("/productos", async (req, res) => {
